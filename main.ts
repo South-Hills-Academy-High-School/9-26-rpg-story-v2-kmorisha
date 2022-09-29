@@ -44,7 +44,13 @@ function happyEnding () {
     return happy1
 }
 function imSorry () {
-	
+    Im_sorry_1 = createScript("Mr. Kao", "I have no money", 2)
+    Im_sorry_2 = createScript("Pineapple", "Go away!", 3)
+    Im_sorry_3 = createScript("Pineapple", "Do you have Arizona Iced Tea??", 0)
+    blockObject.setAnyProperty(Im_sorry_1, AnyProp.NextPage, Im_sorry_2)
+    blockObject.setAnyProperty(Im_sorry_2, AnyProp.NextPage, Im_sorry_3)
+    blockObject.setAnyProperty(Im_sorry_3, AnyProp.NextPage, finalChoice())
+    return Im_sorry_1
 }
 // microsoft/arcade-block-objects
 // 
@@ -96,6 +102,15 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         printCurrentScript()
     }
 })
+function No_money_for_you () {
+    let No_money_for_you_3 = 0
+    No_money_for_you_1 = createScript("Mr. Kao", "I'm tired and you always ask me for money go away. ", 2)
+    No_money_for_you_2 = createScript("Pineapple", "Buy 2 get 1 free", 3)
+    No_money_for_you_2 = createScript("Pineapple", "Do you have Arizona Iced Tea??", 0)
+    blockObject.setAnyProperty(No_money_for_you_1, AnyProp.NextPage, No_money_for_you_2)
+    blockObject.setAnyProperty(No_money_for_you_2, AnyProp.NextPage, No_money_for_you_3)
+    return No_money_for_you_1
+}
 function finalChoice () {
     FinalChoice1 = createScript("Old Man", "Well, I just need enough water for this garden here", 0)
     FinalChoice2 = createScript("Cloud", "I can make that happen! What's the magic word?", 0)
@@ -165,11 +180,16 @@ let oldman1: blockObject.BlockObject = null
 let printingStuff = false
 let FinalChoice2: blockObject.BlockObject = null
 let FinalChoice1: blockObject.BlockObject = null
+let No_money_for_you_2: blockObject.BlockObject = null
+let No_money_for_you_1: blockObject.BlockObject = null
 let makingChoice = false
 let currentScript: blockObject.BlockObject = null
 let nextPage: blockObject.BlockObject = null
 let startScript: blockObject.BlockObject = null
 let choiceIndex = 0
+let Im_sorry_3: blockObject.BlockObject = null
+let Im_sorry_2: blockObject.BlockObject = null
+let Im_sorry_1: blockObject.BlockObject = null
 let happy4: blockObject.BlockObject = null
 let happy3: blockObject.BlockObject = null
 let happy2: blockObject.BlockObject = null
